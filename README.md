@@ -5,9 +5,9 @@ This is an empty repo to initialize an R project. Please follow the directions b
 ## Setup
 In order to get the most out of class you have to be working in this project. There are three ways to get this project on your computer.
 
-Choose __one of these methods__.
+Choose __one of these methods__:
 
-1. [Posit Cloud](https://posit.cloud/)
+1. Posit Cloud
 2. Posit Workbench
 3. Local Rstudio
 
@@ -16,9 +16,9 @@ Choose __one of these methods__.
 1. Create a free account on [posit.cloud](https://posit.cloud/) then login.
 2. Click `New Project` in the top right.
 3. Click `New project from Git Repository`
-4. Paste in `https://github.com/joemarlo/irs-adv-r.git` and Click `OK`
+4. Paste in `https://github.com/joemarlo/irs-adv-r.git` and click `OK`
 
-Moments later an RStudio GUI should appear with the content in the file system.
+Moments later an RStudio GUI should appear with the content in the file system. In the top right, choose R 4.2.3 from the drop-down.
 
 ### Posit Workbench
 
@@ -29,7 +29,7 @@ If your organization has [Posit Workbench](https://posit.co/products/enterprise/
 3. Select `Rstudio Pro` then `Start Session`
 4. Select `File` then `New Project...`
 5. Select `Version Control` then `Git`
-6. Paste in `https://github.com/joemarlo/irs-adv-r.git`, ensure you are using R 4.2.1, and Click `Create Project`
+6. Paste in `https://github.com/joemarlo/irs-adv-r.git`, ensure you are using R 4.2.1, and click `Create Project`
 
 ### Local Rstudio
 
@@ -50,7 +50,7 @@ After any of these methods you should have a new RStudio project called irs-adv-
 
 ## Dependencies
 
-The project requires a number of R packages. These packages can be downloaded via:
+The project requires a number of R packages. These packages can be downloaded and installed via:
 
 ```r
 renv::restore()
