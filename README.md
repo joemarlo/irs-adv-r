@@ -1,6 +1,6 @@
 # Advanced R class - IRS
 
-This is an empty repo to initialize an R project. Please follow the directions below to set up your project. The `/deck` folder contains the slides and `/live-scripts` the scripts created during the class -- which will be updated as we go along.
+This is an empty repo to initialize an R project. Please follow the directions below to set up your project. The `/deck` folder contains the slides and `/live-code` the scripts created during the class -- which will be updated as we go along.
 
 ## Setup
 In order to get the most out of class you have to be working in this project. There are three ways to get this project on your computer.

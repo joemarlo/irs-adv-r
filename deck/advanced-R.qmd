@@ -53,6 +53,12 @@ Give more details on each item. Give people option to skip this morning if they 
   <h2>github.com/joemarlo/irs-adv-r/</h2>
 </div>
 
+## {background-color="#333333"}
+
+<div style="margin: 30% auto auto 20%;">
+  <h2>marlo.works/irs-adv-r/advanced-R.html</h2>
+</div>
+
 <!-- ## {background-color="#333333"} -->
 
 <!-- ```{r} -->
