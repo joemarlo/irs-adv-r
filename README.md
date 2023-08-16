@@ -7,13 +7,13 @@ In order to get the most out of class you have to be working in this project. Th
 
 Choose __one of these methods__.
 
-1. [Posit Cloud](posit.cloud)
+1. [Posit Cloud](https://posit.cloud/)
 2. Posit Workbench
 3. Local Rstudio
 
 ### Posit Cloud
 
-1. Create a free account on [posit.cloud](posit.cloud) then login.
+1. Create a free account on [posit.cloud/](https://posit.cloud/) then login.
 2. Click `New Project` in the top right.
 3. Click `New project from Git Repository`
 4. Paste in `https://github.com/joemarlo/irs-adv-r.git` and Click `OK`
