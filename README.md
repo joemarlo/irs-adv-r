@@ -13,7 +13,7 @@ Choose __one of these methods__.
 
 ### Posit Cloud
 
-1. Create a free account on [posit.cloud/](https://posit.cloud/) then login.
+1. Create a free account on [posit.cloud](https://posit.cloud/) then login.
 2. Click `New Project` in the top right.
 3. Click `New project from Git Repository`
 4. Paste in `https://github.com/joemarlo/irs-adv-r.git` and Click `OK`
@@ -33,7 +33,7 @@ If your organization has [Posit Workbench](https://posit.co/products/enterprise/
 
 ### Local Rstudio
 
-This assumes you have [R and Rstudio](https://posit.co/download/rstudio-desktop/) along with  `git` [installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+This assumes you have [R and Rstudio](https://posit.co/download/rstudio-desktop/) along with  [`git` installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 1. Open Rstudio.
 2. Select `File` then `New Project...`

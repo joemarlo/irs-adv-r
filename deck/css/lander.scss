@@ -1,0 +1,24 @@
+
+@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
+
+
+/*-- scss:defaults --*/
+
+$body-bg: #fff;
+$font-family-sans-serif: Roboto, sans-serif;
+$presentation-font-size-root: 30px;
+$body-color: #434343;
+$presentation-heading-color: #863695;
+$presentation-heading-font: Roboto, 'News Cycle', Impact, sans-serif;
+$presentation-heading-font-weight: 400;
+$link-color: #42affa;
+$code-bg: #efefef;
+
+/*-- scss:rules --*/
+.reveal .progress {
+  background: rgba(134, 54, 149, 0.3);
+  color: #863695;
+  height: 5px;
+}
