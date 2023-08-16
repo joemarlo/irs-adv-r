@@ -15,8 +15,8 @@ Choose __one of these methods__:
 
 1. Create a free account on [posit.cloud](https://posit.cloud/) then login.
 2. Click `New Project` in the top right.
-3. Click `New project from Git Repository`
-4. Paste in `https://github.com/joemarlo/irs-adv-r.git` and click `OK`
+3. Click `New project from Git Repository`.
+4. Copy `https://github.com/joemarlo/irs-adv-r.git` to your clipboard then paste it into the `URL of your Git Repository` and Click `OK`.
 
 Moments later an RStudio GUI should appear with the content in the file system. In the top right, choose R 4.2.3 from the drop-down.
 
@@ -29,7 +29,7 @@ If your organization has [Posit Workbench](https://posit.co/products/enterprise/
 3. Select `Rstudio Pro` then `Start Session`
 4. Select `File` then `New Project...`
 5. Select `Version Control` then `Git`
-6. Paste in `https://github.com/joemarlo/irs-adv-r.git`, ensure you are using R 4.2.1, and click `Create Project`
+4. Copy `https://github.com/joemarlo/irs-adv-r.git` to your clipboard then paste it in, ensure you are using R 4.2.X, and Click `Create Project`
 
 ### Local Rstudio
 
@@ -38,7 +38,7 @@ This assumes you have [R and Rstudio](https://posit.co/download/rstudio-desktop/
 1. Open Rstudio.
 2. Select `File` then `New Project...`
 3. Select `Version Control` then `Git`
-4. Paste in `https://github.com/joemarlo/irs-adv-r.git`, ensure you are using R 4.2.1, and Click `Create Project`
+4. Copy `https://github.com/joemarlo/irs-adv-r.git` to your clipboard then paste it in, ensure you are using R 4.2.X, and Click `Create Project`
 
 If you're comfortable using command line, you may also clone the repo directly:
 
