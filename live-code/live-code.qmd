@@ -504,6 +504,158 @@ broom::tidy(my_m_mod)
 # coef(my_m_mod)
 ```
 
+## Visualizing models
+
+```{r}
+plot(my_formula, data = mtcars)
+
+plot(mtcars$hp, mtcars$mpg)
+lines(x = mtcars$hp, my_mod$fitted.values, col = 'red')
+
+coefplot::coefplot(my_m_mod, intercept = FALSE)
+
+plot(my_m_mod)
+my_m_mod |> plot()
+
+# library(magrittr)
+# %>% 
+# |>  
+
+library(ggplot2)
+
+my_m_mod |> 
+  broom::tidy() |> 
+  dplyr::filter(term != '(Intercept)', term != 'wt') |> 
+  dplyr::mutate(
+    lower = estimate - (qnorm(1-0.05) * std.error),
+    upper = estimate + (qnorm(1-0.05) * std.error),
+    is_sig = p.value <= 0.05
+  ) |> 
+  ggplot(aes(x = estimate, y = term, color = is_sig)) +
+  geom_point() +
+  geom_linerange(aes(xmin = lower, xmax = upper)) +
+  geom_vline(xintercept = 0)
+
+ggplot(
+  mtcars,
+  aes(y = mpg, x = hp, color = as.factor(vs))
+) +
+  geom_point() +
+  facet_wrap(~am) +
+  geom_smooth(method = 'lm')
+```
+
+## Logistic regression
+
+```{r}
+my_lin_mod <- lm(am ~ mpg, data = mtcars)
+broom::tidy(my_lin_mod)
+predict(my_lin_mod, list(mpg = 50))
+predict(my_lin_mod, list(mpg = 0:50)) |> plot(type = 'l')
+```
+
+```{r}
+my_log_mod <- glm(am ~ mpg, data = mtcars, family = 'binomial')
+broom::tidy(my_log_mod)
+
+predict(my_log_mod, list(mpg = 50), type = 'response')
+predict(my_log_mod, list(mpg = 0:50), type = 'response') |> plot(x = 0:50, type = 'l')
+```
+
+```{r}
+broom::tidy(my_log_mod)
+
+odds <- exp(0.3070282)
+odds / (1 + odds)
+```
+
+```{r}
+predict(my_log_mod, list(mpg = 50), type = 'response')
+```
+
+
+## Count data
+
+```{r}
+rpois(1000, lambda = 10) |> hist()
+rpois(10, lambda = 10)
+```
+
+```{r}
+glm(cyl ~ ., family = 'poisson', data = mtcars) |> summary()
+```
+
+```{r}
+hist(mtcars$cyl)
+mean(mtcars$cyl)
+var(mtcars$cyl)
+
+my_nb_mod <- MASS::glm.nb(cyl ~ ., data = mtcars)
+summary(my_nb_mod)
+predict(my_nb_mod, type = 'response')
+```
+
+## zip model
+
+```{r}
+counts <- rbinom(32, size = 1, prob = 0.7) * rpois(32, 5)
+plot(1:32, counts, type = 'l')
+barplot(table(counts))
+
+pscl::zeroinfl(counts ~ mtcars$cyl) |> summary()
+```
+
+# Model evaluation 
+
+```{r}
+plot(mtcars$hp, mtcars$mpg)
+my_mod <- lm(mpg ~ hp, data = mtcars)
+y_hat <- predict(my_mod, newdata = list(hp = mtcars$hp))
+
+plot(mtcars$hp, mtcars$mpg)
+lines(mtcars$hp, y_hat)
+
+plot(y_hat - mtcars$mpg)
+abline(0, 0, lty = 'dashed')
+```
+
+RMSE: root-mean-squared-error
+
+```{r}
+y <- mtcars$mpg
+sqrt(mean((y_hat - y)^2))
+```
+
+
+MAE: mean absolute error
+
+```{r}
+mean(abs(y - yhat))
+```
+
+MAPE: mean absolute percentage error
+
+
+AIC: Akaike's Information Criteria
+AIC = -2 * log(L) + 2 * k
+  L = max liklihood
+  k = number of parameters
+
+BIC: Bayesian Information Criteria
+  - similar to AIC but punishes the addition of parameters
+
+Trying to minimize these values
+
+```{r}
+mod_simple <- lm(mpg ~ hp, data = mtcars)
+AIC(mod_simple)
+BIC(mod_simple)
+broom::glance(mod_simple)
+
+mod_complex <- lm(mpg ~ ., data = mtcars)
+broom::glance(mod_complex)
+```
+
 
 
 
