@@ -1,0 +1,152 @@
+---
+title: "IRS Advanced R Live Code"
+author: "Joe Marlo"
+date: 8/17/2023
+format: html
+---
+
+# R as a calculator
+
+## Basic math
+
+```{r}
+1 + 1
+2 * 2
+5 / 2
+
+5 / (1+2)
+
+# PEMDAS
+# paren, exp, multiplication, division, addition, subtraction
+
+2^10
+2**10
+
+sqrt(10)
+
+```
+
+## Vectorized operations
+
+```{r}
+1:10 * 2
+1:10 + 2
+
+1:10 + 1:10
+
+1:10 * 1:2
+```
+
+## Logicals
+
+```{r}
+1 == 1
+a = 1
+
+1 != 1
+2 != 1
+
+1:4 == 3
+
+!TRUE
+
+4 > 3
+
+!(4 > 3)
+
+my_vec <- 1:4 == 3
+length(my_vec)
+
+any(my_vec)
+all(my_vec)
+!all(my_vec)
+```
+
+```{r}
+ifelse(1 == 1, 'this is true', 'this is false')
+```
+
+## Objects
+
+```{r}
+class(1)
+1L
+TRUE
+
+'my string'
+"my string"
+
+"this is my 'quote'"
+class('aslkdj')
+
+list(1, 2, 3)
+list(slot1 = 1, my_2 = 2, third = 3)
+
+my_list <- list(slot1 = 1, my_2 = 2, third = 3)
+
+my_list$slot1
+```
+
+## Indexing
+
+```{r}
+x <- letters
+
+# indexing based on position
+x[1]
+x[2]
+
+x[1:3]
+x[10:15]
+x[length(x)]
+x[c(1:3, 5:6)]
+
+# indexing based on logical
+x <- x[1:6]
+
+x[c(TRUE, TRUE, FALSE, FALSE, TRUE, TRUE)]
+# 'a' 'b' 'c' 'd' 'e' 'f'
+
+which(c(TRUE, TRUE, FALSE, FALSE, TRUE, TRUE))
+
+x == 'b'
+which(x == 'b')
+```
+
+## Data.frames
+
+```{r}
+mtcars
+
+dim(mtcars)
+ncol(mtcars)
+nrow(mtcars)
+colnames(mtcars)
+
+summary(mtcars)
+str(mtcars)
+
+head(mtcars)
+
+mtcars$mpg
+mtcars[['mpg']]
+mtcars['mpg']
+
+mtcars[1,]
+mtcars[1, 1]
+
+mtcars[1:10,]
+mtcars[c(1, 3, 5),]
+mtcars[, 1:3]
+
+
+mtcars[mtcars$mpg > 20, ]
+
+mtcars$mpg > 20 & mtcars$hp > 100
+mtcars[mtcars$mpg > 20 & mtcars$hp > 100, ]
+```
+
+```{r}
+
+```
+

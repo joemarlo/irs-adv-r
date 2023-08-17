@@ -55,7 +55,7 @@ Give more details on each item. Give people option to skip this morning if they 
 
 ## {background-color="#333333"}
 
-<div style="margin: 30% auto auto 20%;">
+<div style="margin: 30% auto auto 10%;">
   <h2>marlo.works/irs-adv-r/advanced-R.html</h2>
 </div>
 
@@ -260,6 +260,7 @@ See more at [tidyverse.org](tidyverse.org)
 * [GAMs](https://noamross.github.io/gams-in-r-course/)
 * Tidy [machine learning](https://www.tidymodels.org/)
 * Clustering
+* [Various statistics examples in R](https://stats.oarc.ucla.edu/r/dae)
 * [Building R packages](https://r-pkgs.org/)
 * Interactive apps: [Shiny](https://shiny.posit.co/)
 * Even more! [R Conferences](https://rstats.ai/videos) and [nyhackr](https://nyhackr.org/past-talks.html) videos
