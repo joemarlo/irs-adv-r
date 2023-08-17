@@ -146,7 +146,143 @@ mtcars$mpg > 20 & mtcars$hp > 100
 mtcars[mtcars$mpg > 20 & mtcars$hp > 100, ]
 ```
 
-```{r}
+## Help menu
 
+```{r}
+?mtcars
+?nrow
+?str
 ```
+
+## Reading in data
+
+```{r}
+# connecting to a database
+# con <- DBI::dbConnect(
+#   odbc::odbc(),
+#   database = '',
+#   user = '',
+#   password = ''
+# )
+
+# DBI::dbListTables(con)
+```
+
+```{r}
+# getwd()
+# here::here()
+read.csv('../data/mtcars.csv', stringsAsFactors = FALSE)
+mtcars <- readr::read_csv('../data/mtcars.csv')
+```
+## Basic plotting
+
+```{r}
+plot(
+  x = mtcars$disp,
+  y = mtcars$mpg
+)
+
+plot(
+  x = mtcars$disp,
+  y = mtcars$mpg,
+  type = 'l'
+)
+
+barplot(mtcars$disp, names.arg = mtcars$car)
+
+plot(
+  x = mtcars$disp,
+  y = mtcars$mpg,
+  col = mtcars$cyl,
+  main = 'My special plot',
+  xlab = 'Displacement',
+  ylab = 'Miles per gallon'
+)
+legend(
+  'topright',
+  c('4', '6', '8'),
+  pch = 1,
+  col = c('blue', 'violet', 'grey')
+)
+
+my_mod <- lm(mpg ~ disp, data = mtcars)
+
+plot(
+  x = mtcars$disp,
+  y = mtcars$mpg,
+  col = mtcars$cyl,
+  main = 'My special plot',
+  xlab = 'Displacement',
+  ylab = 'Miles per gallon'
+)
+lines(
+  x = mtcars$disp,
+  y = predict(my_mod, newdata = list(disp = mtcars$disp))
+)
+
+hist(mtcars$disp)
+plot(density(mtcars$disp))
+```
+
+## ggplot2
+
+```{r}
+library(ggplot2)
+
+ggplot(
+  mtcars,
+  aes(x = disp, y = mpg, color = as.factor(cyl))
+) +
+  geom_point() +
+  # geom_histogram() +
+  # geom_line()
+  facet_wrap(~am) + 
+  # scale_color_viridis_d() +
+  labs(title = 'My great plot',
+       subtitle = 'My subtitle',
+       x = 'Displacement',
+       y = 'MPG',
+       color = 'n cylinders')
+
+ggplot(
+  mtcars,
+  aes(x = disp)
+) +
+  geom_histogram(bins = 5) +
+  theme_bw()
+```
+
+## Functions
+
+```{r}
+?ggplot
+
+square <- function(x) x^2
+square <- function(x) {
+  square_x <- x^2
+  return(square_x)
+}
+x <- 10
+square(2)
+square(10)
+
+apply()
+sapply()
+vapply()
+
+sapply(1:10, 2:11, square)
+
+square_and_add <- function(x, y){
+  (x^2) + (y^2)
+}
+
+purrr::map2(1:10, 2:11, square_and_add)
+purrr::map2_dbl(1:10, 2:11, square_and_add)
+purrr::map2
+
+for (i in 1:10){
+  print(i * 2)
+}
+```
+
 
