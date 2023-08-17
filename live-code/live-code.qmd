@@ -461,10 +461,48 @@ shapiro.test(runif(1000))
 
 
 ```{r}
+mtcars
+plot(mtcars$hp, mtcars$mpg)
 
+my_mod <- lm(mpg ~ hp, data = mtcars)
+# lm(mtcars$mpg ~ mtcars$hp)
+my_mod
+summary(my_mod)
+
+plot(mtcars$hp, mtcars$mpg)
+lines(x = mtcars$hp, my_mod$fitted.values)
+```
+
+```{r}
+predict(my_mod)
+predict(my_mod, list(hp = 1))
+predict(my_mod, list(hp = 1000))
 ```
 
 
+## The formula interface
+
+```{r}
+formula(mpg ~ hp)
+formula(mpg ~ hp + disp)
+formula(mpg ~ hp * disp)
+# mpg ~ hp + disp + hp:disp
+# formula(mpg ~ hp + I(disp))
+```
+
+
+## Multiple regression
+
+```{r}
+my_formula <- formula(mpg ~ hp + disp + wt)
+plot(my_formula, data = mtcars)
+
+my_m_mod <- lm(my_formula, data = mtcars)
+summary(my_m_mod)
+
+broom::tidy(my_m_mod)
+# coef(my_m_mod)
+```
 
 
 
