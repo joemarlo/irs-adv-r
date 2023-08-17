@@ -657,10 +657,80 @@ broom::glance(mod_complex)
 ```
 
 
+# tidyverse
 
+## dplyr
 
+```{r}
+library(dplyr)
+mtcars <- tibble::tibble(mtcars)
 
+# filter to cars with cyl greater than or equal to 6
+mtcars |> 
+    filter(cyl >= 6)
 
+mtcars |> 
+  group_by(am) |> 
+  summarize(mean_mpg = mean(mpg))
+
+mtcars |> 
+  mutate(is_sports_car = (cyl >= 6) & (hp > 100))
+
+mtcars |> 
+  group_by(am) |> 
+  mutate(mean_mpg = mean(mpg)) |> 
+  ungroup()
+  # mutate(is_sports_car = (cyl >= 6) & (hp > 100))
+
+mtcars |> 
+  group_by(am, cyl) |> 
+  summarize(mean_mpg = mean(mpg))
+
+mtcars |> 
+  group_by() |> 
+  summarize(mean(mpg))
+
+mtcars |> 
+  select(mpg, cyl, disp)
+
+mtcars |> 
+  select(starts_with('d'))
+
+# tidyselect function
+# starts_with
+# ends_with
+# contains
+# everything
+
+mtcars |> 
+  pull(mpg)
+mtcars$mpg
+mtcars |> 
+  group_by(am) |> 
+  summarize(mean_mpg = mean(mpg)) |> 
+  pull(mean_mpg)
+
+```
+
+## tidyr
+
+```{r}
+# tidyr::pivot_longer
+# tidyr::pivot_wider
+
+library(tidyr)
+
+?fish_encounters
+
+fish_encounters |> 
+  pivot_wider(names_from = station, values_from = seen, values_fill = 0)
+```
+
+## Additional resources we mentioned
+https://www.tmwr.org/
+https://vita.had.co.nz/papers/tidy-data.pdf
+https://www.tidyverse.org/
+See also the slides at the end of the deck for more resources
 
 
 
